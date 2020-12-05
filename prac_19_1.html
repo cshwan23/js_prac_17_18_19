@@ -1,0 +1,116 @@
+
+<html><meta charset="utf-8">
+<head>
+	<title></title>
+
+	<script>
+
+		function checkPhone(no){
+
+		
+			var phone1 = document.myForm.phone1.value;
+			var phone2 = document.myForm.phone2.value;
+			var phone3 = document.myForm.phone3.value;	
+
+
+			if(no==1){
+
+				var regExp = new RegExp(/^[0-9]{0,3}$/);
+				var result = regExp.test(phone1);
+				if(result==false){
+					alert("지금 입력하고 있는 핸드폰 번호는 숫자 3개여야 합니다.");
+					document.myForm.phone1.value="";
+					
+					
+				}
+				if(phone1.length==3){
+					document.myForm.phone2.focus();
+				}
+			}
+
+			else if(no==2){
+
+				var regExp = new RegExp(/^[0-9]{0,4}$/);
+				var result = regExp.test(phone2);
+
+				if(result==false){
+					
+					alert("지금 입력하고 있는 핸드폰 번호는 숫자 4개여야 합니다.");
+					document.myForm.phone2.value="";
+					
+					
+				}
+				if(phone2.length==4){
+					document.myForm.phone3.focus();
+				}
+			}
+
+			else if(no==3){
+
+				var regExp = new RegExp(/^[0-9]{0,4}$/);
+				var result = regExp.test(phone3);
+
+				if(result==false){
+					alert("지금 입력하고 있는 핸드폰 번호는 숫자 4개여야합니다.");
+					document.myForm.phone3.value="";
+					
+				}
+			}
+
+			else if(no==4){
+
+				if(phone1.length>0 && phone1.length<3){
+					alert("핸드폰 번호 1번째가 3개가 아닙니다.");
+					document.myForm.phone1.focus();
+					
+				}
+
+				
+			}
+
+			else if(no==5){
+
+					if(phone2.length>0 && phone2.length<4){
+					alert("핸드폰 번호 2번째가 4개가 아닙니다.");
+					document.myForm.phone2.focus();
+					
+				}
+
+
+				
+			}
+
+
+			else if(no==6){
+
+					if(phone3.length>0 && phone3.length<4){
+					alert("핸드폰 번호 3번째가 4개가 아닙니다.");
+					document.myForm.phone3.focus();
+					
+				}
+
+			}
+
+
+		}
+
+
+
+	</script>
+</head>
+<body onload="document.myForm.phone1.focus();"><center>
+
+	<form name="myForm">
+		<input type="text" name="phone1" onkeyup="checkPhone(1);" onblur="checkPhone(4);">
+		-
+		<input type="text" name="phone2" onkeyup="checkPhone(2);" onblur="checkPhone(5);">
+		-
+		<input type="text" name="phone3" onkeyup="checkPhone(3);" onblur="checkPhone(6);">
+		
+
+
+	</form>
+
+
+</body>
+</html>

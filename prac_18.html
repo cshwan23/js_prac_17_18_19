@@ -1,0 +1,122 @@
+<!-- 
+	=> 웹 화면에서 발생하는 각종 이벤트 정보를 관리하는 [Event 객체]를 이용
+		이벤트 발생 시 원하는 행동 취한다.
+	=> 이벤트의 종류
+		click
+		dbclick
+
+		focus
+		blur
+		select
+
+		mouseover
+		mouseout
+		mousedown  => 마우스에 달린 모든 버튼을 누르는 행위 
+
+		keydown
+		keyup
+
+		submit
+		reset
+
+		load    => 웹브라우저에 새로운 페이지가 불려오는 행위 ( 새로운 페이지 열림)
+		unload
+
+		change 
+
+		--------------------
+
+		태그에서 이벤트가 발생하면 자바스크립트 코딩을 실행시키는 방법.
+
+		<태그명 on이벤트명 = "자바스크립트코딩">
+		=>	 <input type="text" onclick="alert"('아 블라블라')">
+		=> 	 <div onClick="alert('만세,')">바보</div>
+
+
+
+
+ -->
+
+<html><meta charset="utf-8">
+<head>
+	<title></title>
+
+	<script type="text/javascript">
+		
+		function msg1(){
+
+			alert("시발년아!");
+		}
+
+		function msg2(){
+
+			alert("꺼지세요!");
+		}
+
+		function show1(){
+
+			// 이벤트가 발생한 위치의 X좌표를 구해 변수에 저장
+			// event 객체의 속성변수 screenX 안에 이벤트가 발생한 곳의 x좌표가 저장되어있다.
+			var x = event.screenX;
+
+			// 이벤트가 발생한 위치의 Y좌표를 구해 변수에 저장 
+			// event 객체의 속성변수 screenX 안에 이벤트가 	발생한 곳의 y좌표가 저장되어있다.
+			var y = event.screenY;
+
+			// name="info1"을 가진 입력양식의 value 속성에 클릭 이벤트가 발생한 위치의
+			// x좌표 y좌표를 삽입
+			document.myForm.info1.value = "X좌표 : " + x + "Y좌표 : " + y;
+
+		}
+
+
+		function show2(){
+			document.myForm.info2.value = event.button;
+		}
+
+		function show3(){
+			document.myForm.info3.value = event.keyCode;
+			if(event.keyCode==16){
+				location.replace("http://naver.com");
+			}
+		}
+
+
+	</script>
+
+
+</head>
+<body onload="msg1();" onunload="msg2();" onclick="show1();" onmousedown="show2();" onkeydown="show3();"><center>
+
+	<form name="myForm">
+
+		<table border=0 cellpadding="7" cellspacing="0" style="border-collapse: collapse;">
+			
+			<tr>
+				<td>마우스 클릭 위치 : 
+				<td><input type="text" name="info1" size="30">
+
+			<tr>
+				<td>클릭한 마우스 고유번호 : 
+				<td><input type="text" name="info2" size="30">
+
+			<tr>
+				<td>누른 키보드 번호 : 
+				<td><input type="text" name="info3" size="30">
+
+
+
+		</table>
+
+	</form>
+
+
+</body>
+</html>
+
+
+
+
+
+
+

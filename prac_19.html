@@ -1,0 +1,85 @@
+
+<html><meta charset="utf-8">
+<head>
+	<title></title>
+
+	<script>
+		
+		function checkPhone(no){
+
+		
+			
+			
+
+			if(no==1){
+				var phone1 = document.myForm.phone1.value;
+				var regExp = new RegExp(/^[0-9]{0,3}$/)
+				var result = regExp.test(phone1);
+
+				if(result==false){
+					alert("핸드폰 앞자리 숫자는 3개여야합니다.");
+					document.myForm.phone1.value="";
+					return;
+				}
+				if(phone1.length==3){
+					document.myForm.phone2.focus();
+				}
+
+			}
+			if(no==2){
+				var phone2 = document.myForm.phone2.value;
+				var regExp = new RegExp(/^[0-9]{0,4}$/);
+				var result = regExp.test(phone2);
+				if(result==false){
+
+					alert("핸드폰 앞자리 숫자는 4개여야합니다.");
+					document.myForm.phone2.value = "";
+					return;
+				}
+				if(phone2.length==4){
+					document.myForm.phone3.focus();
+				}
+			}
+
+			if(no==3){
+				var phone3 = document.myForm.phone3.value;
+				var regExp = new RegExp(/^[0-9]{0,4}$/);
+				var result = regExp.test(phone3);
+
+				if(result==false){
+					alert("핸드폰 앞자리 숫자는 4개여아합니다");
+					document.myForm.phone3.value = "";
+					
+				}
+
+			}
+
+		}
+
+
+
+
+
+	</script>
+
+
+</head>
+<body ><center>
+
+	<form name="myForm">
+
+		<input type="text" name="phone1" onkeyup="checkPhone(1);">
+		-
+		<input type="text" name="phone2" onkeyup="checkPhone(2);">
+		-
+		<input type="text" name="phone3" onkeyup="checkPhone(3);">
+		
+
+
+
+
+	</form>
+
+
+</body>
+</html>
